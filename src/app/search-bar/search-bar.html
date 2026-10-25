@@ -1,0 +1,16 @@
+<div class="search-bar">
+  <label for="brand">Brand</label>
+  <input id="brand" type="text" placeholder="Sample : BMW" [(ngModel)]="brand" />
+  <button (click)="searchAutoList()">Search</button>
+</div>
+
+<ul class="results" *ngIf="result.length > 0">
+  <li *ngFor="let auto of result">
+    <strong>{{ auto.model }}</strong>
+    <button class="view" (click)="selectedAuto(auto)">View more...</button>
+  </li>
+</ul>
+
+<p class="empty" *ngIf="searched && result.length === 0">
+  Aucune voiture trouvée pour cette marque.
+</p>
